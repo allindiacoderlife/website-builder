@@ -23,6 +23,35 @@ const componentsList = {
       backgroundColor: "bg-gradient-to-r from-indigo-500 to-purple-600"
     }
   },
+  testimonials: { 
+    id: "testimonials", 
+    label: "Testimonials", 
+    type: "testimonials",
+    defaultProps: {
+      title: "What Our Clients Say",
+      testimonials: [
+        {
+          name: "Sarah Johnson",
+          role: "CEO, Tech Corp",
+          text: "This platform transformed our business operations. Highly recommended!",
+          rating: 5
+        },
+        {
+          name: "Mike Chen",
+          role: "Founder, StartupXYZ", 
+          text: "Outstanding service and support. The team went above and beyond.",
+          rating: 5
+        },
+        {
+          name: "Emily Davis",
+          role: "Marketing Director",
+          text: "Easy to use and incredibly effective. Results exceeded our expectations.",
+          rating: 5
+        }
+      ],
+      backgroundColor: "bg-gray-50"
+    }
+  },
   footer: { 
     id: "footer", 
     label: "Footer", 

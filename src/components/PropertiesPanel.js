@@ -308,6 +308,74 @@ export default function PropertiesPanel() {
           </>
         );
 
+      case 'testimonials':
+        return (
+          <>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Section Title</label>
+              <input
+                type="text"
+                value={selectedComponent.props.title}
+                onChange={(e) => handlePropChange('title', e.target.value)}
+                className="w-full p-2 border border-gray-300 rounded text-sm text-black"
+              />
+            </div>
+            
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Testimonials</label>
+              <div className="space-y-3 max-h-64 overflow-y-auto border border-gray-200 rounded p-3">
+                {selectedComponent.props.testimonials.map((testimonial, index) => (
+                  <div key={index} className="border border-gray-100 rounded p-3 bg-white">
+                    <div className="mb-2">
+                      <input
+                        type="text"
+                        value={testimonial.name}
+                        onChange={(e) => {
+                          const newTestimonials = [...selectedComponent.props.testimonials];
+                          newTestimonials[index].name = e.target.value;
+                          handlePropChange('testimonials', newTestimonials);
+                        }}
+                        placeholder="Name"
+                        className="w-full p-1 text-xs border border-gray-300 rounded text-black mb-1"
+                      />
+                      <input
+                        type="text"
+                        value={testimonial.role}
+                        onChange={(e) => {
+                          const newTestimonials = [...selectedComponent.props.testimonials];
+                          newTestimonials[index].role = e.target.value;
+                          handlePropChange('testimonials', newTestimonials);
+                        }}
+                        placeholder="Role"
+                        className="w-full p-1 text-xs border border-gray-300 rounded text-black"
+                      />
+                    </div>
+                    <textarea
+                      value={testimonial.text}
+                      onChange={(e) => {
+                        const newTestimonials = [...selectedComponent.props.testimonials];
+                        newTestimonials[index].text = e.target.value;
+                        handlePropChange('testimonials', newTestimonials);
+                      }}
+                      placeholder="Testimonial text"
+                      className="w-full p-1 text-xs border border-gray-300 rounded text-black"
+                      rows={2}
+                    />
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-gray-500 mt-2">Edit testimonials above. Each testimonial has name, role, and text fields.</p>
+            </div>
+            
+            <ColorPicker
+              label="Background Color"
+              value={selectedComponent.props.backgroundColor}
+              onChange={(value) => handlePropChange('backgroundColor', value)}
+              options={backgroundOptions}
+            />
+          </>
+        );
+
       default:
         return <p className="text-gray-500">No properties available for this component.</p>;
     }

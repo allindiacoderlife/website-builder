@@ -32,6 +32,7 @@ function DraggableComponent({ component }) {
           {component.type === "footer" && "🔗"}
           {component.type === "content" && "📄"}
           {component.type === "cta" && "🚀"}
+          {component.type === "testimonials" && "💬"}
         </div>
         <span className="text-sm font-medium text-gray-700">{component.label}</span>
       </div>

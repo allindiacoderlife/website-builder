@@ -8,12 +8,15 @@ import Hero from "./Hero";
 import Footer from "./Footer";
 import Content from "./Content";
 import CTA from "./CTA";
+import Testimonials from "./Testimonials";
 
 const componentMap = {
   navbar: Navbar,
   hero: Hero,
   footer: Footer,
   content: Content,
+  cta: CTA,
+  testimonials: Testimonials,
   cta: CTA,
 };
 
